@@ -162,7 +162,7 @@ namespace ContactsCoreMVC.Models.Concrete
 
         public async Task DeleteAsync(string id, string contactName)
         {
-            await _container.DeleteItemAsync<ContactTable>(id, new PartitionKey(contactName));
+            ItemResponse<ContactTable> contactResponse = await _container.DeleteItemAsync<ContactTable>(id, new PartitionKey(contactName));
         }
     }
 }
